@@ -44,7 +44,7 @@ category from each symbol's entry in the sym-cat mapping. Future work will be ne
 informed choice of category in the case of context dependent taxonomy.)
 - Create a <em>garbage set</em> from the token set by randomizing a large enough proportion of the tokens in the token set to render each string likely invalid.
 - Train a comprehensible, spking, convolutional neural network, or <em>grammar net</em>, to distinguish between items of the token and garbage sets.
-- The filters of the grammar net are first order grammar rules, the fully connected layers behind those are second order grammar rules, and so on. (or something to that effect depending on the structure of the grammar net.)
+- The filters of the trained grammar net are first order grammar rules, the fully connected layers behind those are second order grammar rules, and so on. (or something to that effect depending on the structure of the grammar net.)
 
 ## How to Install
 <!-- - Clone this repository. -->
