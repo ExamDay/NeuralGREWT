@@ -77,13 +77,13 @@
 
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1 align="center">
-<a id="user-content-neuralgrewtneural-grammar-rule-extraction-and-word-taxonomy" class="anchor" href="#neuralgrewtneural-grammar-rule-extraction-and-word-taxonomy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NeuralGREWT<br>Neural Grammar Rule Extraction and Word Taxonomy</h1>
+<a id="user-content-neuralgrewtneural-grammar-rule-extraction-and-word-taxonomy" class="anchor" href="#neuralgrewtneural-grammar-rule-extraction-and-word-taxonomy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NeuralGREWT:<br>Neural Grammar Rule Extraction and Word Taxonomy</h1>
 Unsupervised learning of grammar rules and fuzzy word categories by principal component
 analysis of sentence probabilities derived from a natural language generation oracle.
 <h2>
 <a id="user-content-theory" class="anchor" href="#theory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theory</h2>
-<p>A grammar is a set of rules for how symbols can be arranged to form valid strings in a
-language. Strings of symbols that follow all grammar rules are grammatically "valid".
+<p>A <em>grammar</em> is a set of rules for how symbols can be arranged to form valid strings in a
+language. Strings of symbols that follow all grammar rules are grammatically <em>valid</em>.
 Grammatic validity is necessary for, but does not imply, sensicality.
 For example: the string of symbols (or sentence of words in this case)
 "The hat runs and cooks into a hairdresser." is a grammatically valid sentence that
@@ -128,7 +128,7 @@ category from each symbol's entry in the sym-cat mapping. Future work will be ne
 informed choice of category in the case of context dependent taxonomy.)</li>
 <li>Create a <em>garbage set</em> from the token set by randomizing a large enough proportion of the tokens in the token set to render each string likely invalid.</li>
 <li>Train a comprehensible, spking, convolutional neural network, or <em>grammar net</em>, to distinguish between items of the token and garbage sets.</li>
-<li>The filters of the grammar net are first order grammar rules, the fully connected layers behind those are second order grammar rules, and so on. (or something to that effect depending on the structure of the grammar net.)</li>
+<li>The filters of the trained grammar net are first order grammar rules, the fully connected layers behind those are second order grammar rules, and so on. (or something to that effect depending on the structure of the grammar net.)</li>
 </ul>
 <h2>
 <a id="user-content-how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to Install</h2>
