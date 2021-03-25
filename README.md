@@ -38,12 +38,12 @@ importance of symbol categories.
 sorted in descending order of the symbol's <em>belongingness</em> to each category.
 - Create a <em>cat-sym</em> mapping of each category to a list of its symbols sorted in descending order of each symbol's belongingness to the category.
 - Compile a large <em>corpus</em> of valid and sensical writings in the chosen language.
-- Create an <em>abstract set</em> from the corpus by replacing each symbol in the corpus with
+- Create a <em>token set</em> from the corpus by replacing each symbol in the corpus with
 a name or <em>token</em> for its corresponding category. (in the proof of concept we will simply pick the highest ranked
 category from each symbol's entry in the sym-cat mapping. Future work will be needed to make an
 informed choice of category in the case of context dependent taxonomy.)
-- Create a <em>garbage set</em> from the abstract set by randomizing a large enough proportion of the tokens in the abstract set to render each string likely invalid.
-- Train a comprehensible, spking, convolutional neural network, or <em>grammar net</em>, to distinguish between items of the abstract and garbage sets.
+- Create a <em>garbage set</em> from the token set by randomizing a large enough proportion of the tokens in the token set to render each string likely invalid.
+- Train a comprehensible, spking, convolutional neural network, or <em>grammar net</em>, to distinguish between items of the token and garbage sets.
 - The filters of the grammar net are first order grammar rules, the fully connected layers behind those are second order grammar rules, and so on. (or something to that effect depending on the structure of the grammar net.)
 
 ## How to Install
