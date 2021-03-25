@@ -3,8 +3,8 @@ Unsupervised learning of grammar rules and fuzzy word categories by principal co
 analysis of sentence probabilities derived from a natural language generation oracle.
 
 ## Theory
-A grammar is a set of rules for how symbols can be arranged to form valid strings in a
-language. Strings of symbols that follow all grammar rules are grammatically "valid".
+A <em>grammar</em> is a set of rules for how symbols can be arranged to form valid strings in a
+language. Strings of symbols that follow all grammar rules are grammatically <em>valid</em>.
 Grammatic validity is necessary for, but does not imply, sensicality.
 For example: the string of symbols (or sentence of words in this case)
 "The hat runs and cooks into a hairdresser." is a grammatically valid sentence that
