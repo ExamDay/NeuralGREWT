@@ -1,4 +1,4 @@
-<h1 align="center">NeuralGREWT<br>Neural Grammar Rule Extraction and Word Taxonomy</h1>
+<h1 align="center">NeuralGREWT:<br>Neural Grammar Rule Extraction and Word Taxonomy</h1>
 Unsupervised learning of grammar rules and fuzzy word categories by principal component
 analysis of sentence probabilities derived from a natural language generation oracle.
 
