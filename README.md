@@ -1,12 +1,12 @@
 <h1 align="center">NeuralGREWT<br>Neural Grammar Rule Extraction and Word Taxonomy</h1>
 Unsupervised learning of grammar rules and fuzzy word categories by principal component
-analysis of sentence probabilities derived from a GPT-2 oracle.
+analysis of sentence probabilities derived from a natural language generation oracle.
 
 ## Theory
 A grammar is a set of rules for how symbols can be arranged to form valid strings in a
 language. Strings of symbols that follow all grammar rules are grammatically "valid".
 Grammatic validity is necessary for, but does not imply, sensicality.
-For example: the string of symbols (or sentence of words in this case) 
+For example: the string of symbols (or sentence of words in this case)
 "The hat runs and cooks into a hairdresser." is a grammatically valid sentence that
 is also nonsensical in isolation ("in isolation" meaning in the absence of explanatory context).
 
@@ -34,10 +34,10 @@ set of the most common ones.
 - Perform principal component analysis on the validity matrix to infer number and relative
 importance of symbol categories.
 - Name each symbol category.
-- Create a <em>sym-cat</em> mapping of each symbol to a list of its categories 
+- Create a <em>sym-cat</em> mapping of each symbol to a list of its categories
 sorted in descending order of the symbol's <em>belongingness</em> to each category.
 - Create a <em>cat-sym</em> mapping of each category to a list of its symbols sorted in descending order of each symbol's belongingness to the category.
-- Compile a large <em>corpus</em> of valid and sensical writings in the chosen language. 
+- Compile a large <em>corpus</em> of valid and sensical writings in the chosen language.
 - Create an <em>abstract set</em> from the corpus by replacing each symbol in the corpus with
 a name or <em>token</em> for its corresponding category. (in the proof of concept we will simply pick the highest ranked
 category from each symbol's entry in the sym-cat mapping. Future work will be needed to make an
