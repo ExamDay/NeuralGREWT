@@ -13,10 +13,10 @@ is also nonsensical in isolation ("in isolation" meaning in the absence of expla
 Given this definition of grammatic validity, valid sentences will be
 more common than invalid ones in any string-set comprised mostly of sensical strings.
 
-<strong>Therefore</strong>, it may be possible to learn grammar rules of any language, including computer,
+Therefore, it may be possible to learn grammar rules of any language, including computer,
 fictional, and extra-terrestrial languages, without needing to make sense of
 anything written in the given language (so long as we are in possession of an ample body of text that
-would be sensical to a speaker of the given language).
+would be sensical to a speaker of given language).
 
 Let's test this hypothesis.
 
