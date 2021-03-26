@@ -1,6 +1,6 @@
 <h1 align="center">NeuralGREWT:<br>Neural Grammar Rule Extraction and Word Taxonomy</h1>
-Unsupervised learning of grammar rules and fuzzy word categories by principal component
-analysis of sentence probabilities derived from a natural language generation model.
+Unsupervised learning of grammar rules and fuzzy symbol categories by principal component
+analysis of string probabilities derived from a natural language generation model.
 
 ## Theory
 A <em>grammar</em> is a set of rules for how symbols can be arranged to form valid strings in a
