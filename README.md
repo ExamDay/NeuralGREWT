@@ -30,8 +30,8 @@ replaced by the other in a randomly chosen valid string without rendering that s
 Knowing this, we can use a natural language generator (predictor from context really) to determine the degree of
 mutual interchangabilty of symbols in a language using total string likelihood before and after replacement
 as an indicator of validity. Once we have these validity scores we can use PCA to infer discrete symbol
-categories from the degree of mutual interchangability (or equivilently the clustering of vadlity-under-replacement
-scores).
+categories from the degree of mutual interchangability (or equivilently the clustering of "vadlity-under-replacement
+scores").
 
 ## Technique Overview
 - Compile a large <em>corpus</em> of valid and sensical writings in the chosen language.
