@@ -16,7 +16,7 @@ more common than invalid ones in any string-set comprised mostly of sensical str
 Therefore, it may be possible to learn grammar rules of any language, including computer,
 fictional, and extra-terrestrial languages, without needing to make sense of
 anything written in the given language (so long as we are in possession of an ample body of text that
-would be sensical to a speaker of given language).
+would be sensical to a speaker of that language).
 
 Let's test this hypothesis.
 
