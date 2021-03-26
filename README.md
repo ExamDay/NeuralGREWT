@@ -13,6 +13,11 @@ is also nonsensical in isolation ("in isolation" meaning in the absence of expla
 Given this definition of grammatic validity, valid sentences will be
 more common than invalid ones in any string-set comprised mostly of sensical strings.
 
+<strong>Therefore</strong>, it may be possible to learn grammar rules of any language, including computer,
+fictional, and extra-terrestrial languages, without needing to make sense of
+anything written in the given language (so long as we are in possession of an ample body of text that is
+sensical to a speaker of the language).
+
 Symbols share a syntactic <em>category</em> in proportion to their mutual interchangability. In other words: 2 symbols share a category in proportion to the probability that one can be replaced by the other in a randomly chosen valid string without rendering that string invalid.
 
 ## Technique Overview
