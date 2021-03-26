@@ -18,7 +18,14 @@ fictional, and extra-terrestrial languages, without needing to make sense of
 anything written in the given language (so long as we are in possession of an ample body of text that is
 sensical to a speaker of the language).
 
-Symbols share a syntactic <em>category</em> in proportion to their mutual interchangability. In other words: 2 symbols share a category in proportion to the probability that one can be replaced by the other in a randomly chosen valid string without rendering that string invalid.
+Let's test this hypothesis.
+
+One good first set to learning grammar rules might be to identify the different categories of symbols present
+in a given language.
+
+Symbols will be said to share a syntactic <em>category</em> in proportion to their mutual interchangability.
+In other words: 2 symbols share a category in proportion to the probability that one can be
+replaced by the other in a randomly chosen valid string without rendering that string invalid.
 
 ## Technique Overview
 - Compile a large "ground set" of valid and/or meaningful strings in the chosen language.
