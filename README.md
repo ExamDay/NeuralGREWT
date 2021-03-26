@@ -27,6 +27,12 @@ Symbols will be said to share a syntactic <em>category</em> in proportion to the
 In other words: 2 symbols share a category in proportion to the probability that one can be
 replaced by the other in a randomly chosen valid string without rendering that string invalid.
 
+Knowing this, we can use a natural language generator (predictor from context really) to determine the degree of
+mutual interchangabilty of symbols in a language using total string likelihood before and after replacement
+as an indicator of validity. Once we have these validity scores we can use PCA to infer discrete symbol
+categories from the degree of mutual interchangability (or equivilently the clustering of vadlity-under-replacement
+scores).
+
 ## Technique Overview
 - Compile a large <em>corpus</em> of valid and sensical writings in the chosen language.
 - Train a natural language model, or <em>predictor</em>, on the corpus until it is very good at predicting
