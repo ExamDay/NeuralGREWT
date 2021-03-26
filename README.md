@@ -20,7 +20,7 @@ would be sensical to a speaker of that language).
 
 Let's test this hypothesis.
 
-One good first set to learning grammar rules might be to identify the different categories of symbols present
+One good first step to learning grammar rules might be to identify the different categories of symbols present
 in a given language.
 
 Symbols will be said to share a syntactic <em>category</em> in proportion to their mutual interchangability.
