@@ -1,6 +1,6 @@
 <h1 align="center">NeuralGREWT:<br>Neural Grammar Rule Extraction and Word Taxonomy</h1>
-Unsupervised learning of grammar rules and fuzzy symbol categories by principal component
-analysis of string probabilities derived from a natural language generation model.
+Unsupervised learning of grammar rules and fuzzy symbol categories by stochasic neighbor embedding
+of string probabilities derived from a natural language generation model.
 
 ## Theory
 A <em>grammar</em> is a set of rules for how symbols can be arranged to form valid strings in a
@@ -29,7 +29,7 @@ replaced by the other in a randomly chosen valid string without rendering that s
 
 Knowing this, we can use a natural language generator (predictor from context really) to determine the degree of
 mutual interchangabilty of symbols in a language using total string likelihood before and after replacement
-as an indicator of validity. Once we have these validity scores we can use PCA to infer discrete symbol
+as an indicator of validity. Once we have these validity scores we can use T-SNE to infer discrete symbol
 categories from the degree of mutual interchangability (or equivilently the clustering of "vadlity-under-replacement
 scores").
 
@@ -53,7 +53,7 @@ set of the most common ones.
     of that string by summing the relative likelihoods of each symbol appearing at
     its location given all previous symbols in the p-string (using the predictor) and dividing by the
     length of that p-string.
-- Perform principal component analysis on the validity matrix to infer number and relative
+- Perform T-SNE on the validity matrix to infer number and relative
 importance of symbol categories.
 - Name each symbol category.
 - Create a <em>sym-cat</em> mapping of each symbol to a list of its categories
