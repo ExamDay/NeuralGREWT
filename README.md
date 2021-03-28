@@ -53,7 +53,7 @@ set of the most common ones.
     of that string by summing the relative likelihoods of each symbol appearing at
     its location given all previous symbols in the p-string (using the predictor) and dividing by the
     length of that p-string.
-- Perform T-SNE on the validity matrix to infer number and relative
+- Perform T-SNE followed by PCA on the validity matrix to infer number and relative
 importance of symbol categories.
 - Name each symbol category.
 - Create a <em>sym-cat</em> mapping of each symbol to a list of its categories
