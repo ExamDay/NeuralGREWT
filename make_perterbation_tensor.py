@@ -18,8 +18,8 @@ with open(args["i"], "r") as f:
     rawStrings = f.read()
 strings = re.split("\n", rawStrings)
 
-# -- Truncate Strings for Smol RAM Devices -- #
-#  strings = strings[0:500]
+# -- Truncate Strings (also good for Smol RAM Devices) -- #
+strings = strings[0:1000]
 
 vectorArray = []
 for s in strings:
@@ -29,7 +29,7 @@ for s in strings:
             vector[i] = " "
     vectorArray.append(vector)
 
-with open("symbols.json", "r") as f:
+with open("data/symbols.json", "r") as f:
     symbols = json.load(f)
 
 # -- generate perterbationTensor -- #
