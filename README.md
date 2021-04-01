@@ -41,21 +41,22 @@ symbols in the language given context. Anything like BERT or GPT-2 will do.
 (in the case of unknown languages, this ground set can just be a random subset of the corpus)
 - Compile a "symbol set" of all symbols in the chosen language, or at least a large
 set of the most common ones.
-- Create a 3 dimensional <em>perturbation matrix</em> from the ground and symbol sets by:
-    - For each <em>ground string</em> in the ground set; for each <em>symbol</em> in the symbol set;
-    add to the perturbation matrix the vector of all strings that can be created by replacing any
-    one item in the ground string with the symbol. Of course, making sure to do this in a
-    consistent order for each vector. (in an actual matrix all such vectors need to be
-    padded to uniform dimension with null strings ―  In practice we can use a 2 dimensional
-    matrix of pointers to vectors of variable dimension)
-- Create a 3 dimensional <em>validity matrix</em> from the perturbation matrix by:
-    - For each item, or <em>p-string</em>, in the perturbation matrix, judge the probability
-    of that string by summing the relative likelihoods of each symbol appearing at
-    its location given all previous symbols in the p-string (using the predictor) and dividing by the
-    length of that p-string.
-- Perform T-SNE followed by PCA on the validity matrix to infer number and relative
+- Create a 4 dimensional <em>perturbation tensor</em> from the ground and symbol sets by:
+    - Add to the perturbation tensor a <em>cube</em> for each <em>symbol</em> in the symbol set;
+    construct each cube by stacking a <em>plane</em> for each <em>ground string</em> in the ground
+    set; construct each plane by stacking a <em>vector</em> for all strings that can be
+    created by replacing any one item in the ground string with the symbol. Of course, making
+    sure to do this in the same order for all vectors.
+    (In an actual tensor all such vectors need to be padded to uniform dimension with null strings
+    ―  In practice we can use a 3 dimensional tensor of pointers to vectors of variable dimension)
+- Create a 4 dimensional <em>validity tensor</em> from the perturbation tensor by:
+    - For each vector in the perturbation tensor, judge the probability
+    of that vector by summing the relative likelihoods of each symbol appearing at
+    its location given all previous symbols in the vector (using the predictor) and dividing by the
+    length of that vector.
+- Perform T-SNE followed by PCA on the validity tensor to infer number and relative
 importance of symbol categories.
-- Name each symbol category.
+- Name each symbol category. (can be totally arbitrary)
 - Create a <em>sym-cat</em> mapping of each symbol to a list of its categories
 sorted in descending order of the symbol's <em>belongingness</em> to each category.
 - Create a <em>cat-sym</em> mapping of each category to a list of its symbols sorted in descending order of each symbol's belongingness to the category.

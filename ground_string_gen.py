@@ -15,10 +15,14 @@ from GPT2.model import GPT2LMHeadModel
 from GPT2.utils import load_weight
 
 parser = argparse.ArgumentParser(description="Automatic Ground String Generation")
-parser.add_argument("-o", default="groundStrings.txt", type=str, help="sets the output folder name")
+parser.add_argument(
+    "-o", default="data/groundStrings.txt", type=str, help="sets the output folder name"
+)
 parser.add_argument("-t", default=0.7, type=float, help="sets the temperature")
 parser.add_argument("-top_k", default=50, type=int, help="sets the temperature")
-parser.add_argument("-n", default=50, type=int, help="sets the number of ground strings to output")
+parser.add_argument(
+    "-n", default=1100, type=int, help="sets the number of ground strings to output"
+)
 parser.add_argument("-p", default="<|endoftext|>", type=str, help="sets the prompt to start from")
 parser.add_argument(
     "-d",
@@ -52,7 +56,7 @@ except Exception:  # so we dont have to worry about it not updating sometimes.
     pass
 
 logging.basicConfig(
-    filename="gs_gen.log",
+    filename="logs/gs_gen.log",
     level=logging.DEBUG,
     format="[%(asctime)s|%(name)s|ground_string_gen.py|%(levelname)s] %(message)s",
 )

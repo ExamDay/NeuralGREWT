@@ -8,15 +8,18 @@ import numpy as np
 from tqdm import tqdm
 
 parser = argparse.ArgumentParser(description="Bulk Radius Production")
-parser.add_argument("-i", default="input", type=str, help="sets the input folder name")
-parser.add_argument("-o", default="output", type=str, help="sets the output folder name")
+parser.add_argument("-n", default=1000, type=int, help="sets the number of strings to select")
+parser.add_argument("-i", default="samples/", type=str, help="sets the input folder name")
+parser.add_argument(
+    "-o", default="data/groundStrings_selected.json", type=str, help="sets the output folder name"
+)
 
 args = vars(parser.parse_args())
 
 logging.basicConfig(
-    filename="gs_gen.log",
+    filename="logs/gs_select.log",
     level=logging.DEBUG,
-    format="[%(asctime)s|%(name)s|ground_string_gen.py|%(levelname)s] %(message)s",
+    format="[%(asctime)s|%(name)s|ground_string_select.py|%(levelname)s] %(message)s",
 )
 
 try:  # get natural language processing prereqs
@@ -26,7 +29,7 @@ except Exception:  # so we dont have to worry about it not updating sometimes.
 
 
 def select_ground_strings(
-    count: int = 1000, inDir: str = "samples/", outDir: str = "groundStrings.json"
+    count: int = 1000, inDir: str = "samples/", outDir: str = "data/groundStrings_selected.json"
 ):
     samples = os.listdir(inDir)
     fileSizes = [os.path.getsize(inDir + x) for x in samples]
@@ -60,4 +63,4 @@ def select_ground_strings(
 
 
 if __name__ == "__main__":
-    select_ground_strings(inDir="samples/converted/")
+    select_ground_strings(count=args["n"], inDir=args["i"], outDir=args["o"])

@@ -78,8 +78,8 @@
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1 align="center">
 <a id="user-content-neuralgrewtneural-grammar-rule-extraction-and-word-taxonomy" class="anchor" href="#neuralgrewtneural-grammar-rule-extraction-and-word-taxonomy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NeuralGREWT:<br>Neural Grammar Rule Extraction and Word Taxonomy</h1>
-Unsupervised learning of grammar rules and fuzzy word categories by principal component
-analysis of sentence probabilities derived from a natural language generation oracle.
+Unsupervised learning of grammar rules and fuzzy symbol categories by stochasic neighbor embedding
+of string probabilities derived from a natural language generation model.
 <h2>
 <a id="user-content-theory" class="anchor" href="#theory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theory</h2>
 <p>A <em>grammar</em> is a set of rules for how symbols can be arranged to form valid strings in a
@@ -90,44 +90,61 @@ For example: the string of symbols (or sentence of words in this case)
 is also nonsensical in isolation ("in isolation" meaning in the absence of explanatory context).</p>
 <p>Given this definition of grammatic validity, valid sentences will be
 more common than invalid ones in any string-set comprised mostly of sensical strings.</p>
-<p>Symbols share a syntactic <em>category</em> in proportion to their mutual interchangability. In other words: 2 symbols share a category in proportion to the probability that one can be replaced by the other in a randomly chosen valid string without rendering that string invalid.</p>
+<p>Therefore, it may be possible to learn grammar rules of any language, including computer,
+fictional, and extra-terrestrial languages, without needing to make sense of
+anything written in the given language (so long as we are in possession of an ample body of text that
+would be sensical to a speaker of that language).</p>
+<p>Let's test this hypothesis.</p>
+<p>One good first step to learning grammar rules might be to identify the different categories of symbols present
+in a given language.</p>
+<p>Symbols will be said to share a syntactic <em>category</em> in proportion to their mutual interchangability.
+In other words: 2 symbols share a category in proportion to the probability that one can be
+replaced by the other in a randomly chosen valid string without rendering that string invalid.</p>
+<p>Knowing this, we can use a natural language generator (predictor from context really) to determine the degree of
+mutual interchangabilty of symbols in a language using total string likelihood before and after replacement
+as an indicator of validity. Once we have these validity scores we can use T-SNE to infer discrete symbol
+categories from the degree of mutual interchangability (or equivilently the clustering of "vadlity-under-replacement
+scores").</p>
 <h2>
 <a id="user-content-technique-overview" class="anchor" href="#technique-overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Technique Overview</h2>
 <ul>
-<li>Compile a large "ground set" of valid and/or meaningful strings in the chosen language.</li>
+<li>Compile a large <em>corpus</em> of valid and sensical writings in the chosen language.</li>
+<li>Train a natural language model, or <em>predictor</em>, on the corpus until it is very good at predicting
+symbols in the language given context. Anything like BERT or GPT-2 will do.</li>
+<li>Compile a large "ground set" of valid and/or meaningful strings in the chosen language.
+(in the case of unknown languages, this ground set can just be a random subset of the corpus)</li>
 <li>Compile a "symbol set" of all symbols in the chosen language, or at least a large
 set of the most common ones.</li>
-<li>Create a 3 dimensional <em>perturbation matrix</em> from the ground and symbol sets by:
+<li>Create a 3 dimensional <em>perturbation tensor</em> from the ground and symbol sets by:
 <ul>
 <li>For each <em>ground string</em> in the ground set; for each <em>symbol</em> in the symbol set;
-add to the perturbation matrix the vector of all strings that can be created by replacing any
+add to the perturbation tensor the vector of all strings that can be created by replacing any
 one item in the ground string with the symbol. Of course, making sure to do this in a
-consistent order for each vector. (in an actual matrix all such vectors need to be
+consistent order for each vector. (in an actual tensor all such vectors need to be
 padded to uniform dimension with null strings ―  In practice we can use a 2 dimensional
-matrix of pointers to vectors of variable dimension)</li>
+tensor of pointers to vectors of variable dimension)</li>
 </ul>
 </li>
-<li>Create a 3 dimensional <em>validity matrix</em> from the perturbation matrix by:
+<li>Create a 3 dimensional <em>validity tensor</em> from the perturbation tensor by:
 <ul>
-<li>For each item, or <em>p-string</em>, in the perturbation matrix, judge the probability
+<li>For each item, or <em>p-string</em>, in the perturbation tensor, judge the probability
 of that string by summing the relative likelihoods of each symbol appearing at
-its location given all previous symbols in the p-string and dividing by the length of that
-p-string.</li>
+its location given all previous symbols in the p-string (using the predictor) and dividing by the
+length of that p-string.</li>
 </ul>
 </li>
-<li>Perform principal component analysis on the validity matrix to infer number and relative
+<li>Perform T-SNE followed by PCA on the validity tensor to infer number and relative
 importance of symbol categories.</li>
 <li>Name each symbol category.</li>
 <li>Create a <em>sym-cat</em> mapping of each symbol to a list of its categories
 sorted in descending order of the symbol's <em>belongingness</em> to each category.</li>
 <li>Create a <em>cat-sym</em> mapping of each category to a list of its symbols sorted in descending order of each symbol's belongingness to the category.</li>
-<li>Compile a large <em>corpus</em> of valid and sensical writings in the chosen language.</li>
 <li>Create a <em>token set</em> from the corpus by replacing each symbol in the corpus with
 a name or <em>token</em> for its corresponding category. (in the proof of concept we will simply pick the highest ranked
 category from each symbol's entry in the sym-cat mapping. Future work will be needed to make an
 informed choice of category in the case of context dependent taxonomy.)</li>
 <li>Create a <em>garbage set</em> from the token set by randomizing a large enough proportion of the tokens in the token set to render each string likely invalid.</li>
-<li>Train a comprehensible, spking, convolutional neural network, or <em>grammar net</em>, to distinguish between items of the token and garbage sets.</li>
+<li>Train a comprehensible, spiking, convolutional neural network, or <em>grammar net</em>, to distinguish between items of the token and garbage sets.</li>
 <li>The filters of the trained grammar net are first order grammar rules, the fully connected layers behind those are second order grammar rules, and so on. (or something to that effect depending on the structure of the grammar net.)</li>
 </ul>
 <h2>
