@@ -21,6 +21,11 @@ strings = re.split("\n", rawStrings)
 # -- Truncate Strings (also good for Smol RAM Devices) -- #
 strings = strings[0:1000]
 
+#  with open("data/groundStrings.json", "w") as f:
+#      json.dump(strings, f)
+
+#  exit()
+
 vectorArray = []
 for s in strings:
     vector = re.findall(r"\s|((?<=\s)\w+|\w+(?=[\s.,?!:;'\"\(\)\-])|[.,?!:;'\"\(\)\-])", s)
@@ -31,6 +36,8 @@ for s in strings:
 
 with open("data/symbols.json", "r") as f:
     symbols = json.load(f)
+
+symbols = symbols[0:1000]
 
 # -- generate perterbationTensor -- #
 
