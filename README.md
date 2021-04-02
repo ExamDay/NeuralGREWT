@@ -75,7 +75,7 @@ informed choice of category in the case of context dependent taxonomy.)
 - [x] Compile Ground Set
 - [x] Compile Symbol Set
 - [x] Generate Perterbation Tensor
-- [ ] Calculate Validity Tensor -- In Progress --
+- [ ] Calculate Validity Tensor -- In Progress (7 days of computation time left to go on a GTX 1070 M)--
 - [ ] T-SNE
 - [ ] PCA
 - [ ] Category Naming and Mapping
