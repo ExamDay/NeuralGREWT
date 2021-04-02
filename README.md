@@ -70,7 +70,7 @@ informed choice of category in the case of context dependent taxonomy.)
 - The filters of the trained grammar net are first order grammar rules, the fully connected layers behind those are second order grammar rules, and so on. (or something to that effect depending on the structure of the grammar net.)
 
 ## Status
-- [X] Gather Corpus 
+- [x] Gather Corpus 
 - [x] Train Natural Language Model (GPT-2)
 - [x] Compile Ground Set
 - [x] Compile Symbol Set
