@@ -6,7 +6,7 @@ of string probabilities derived from a natural language generation model.
 A <em>grammar</em> is a set of rules for how symbols may be arranged to form valid strings in a
 language. Strings of symbols that follow all grammar rules are grammatically <em>valid</em>.
 Grammatic validity is necessary for, but does not imply, sensicality.
-For example: the string of symbols (or sentence of words in this case)
+For example: the string of symbols (in this case a sentence of words)
 "The hat runs and cooks into a hairdresser." is a grammatically valid sentence that
 is also nonsensical in isolation ("in isolation" meaning in the absence of explanatory context).
 
