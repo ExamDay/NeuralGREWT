@@ -1,13 +1,5 @@
-html, body { height: 100%; }
-
-body {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-}
-
 // Here is where the magic happens
-
+<style>
 $offset: 187;
 $duration: 1.4s;
 
@@ -48,6 +40,7 @@ $duration: 1.4s;
    transform:rotate(450deg);
  }
 }
+</style>
 
 <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
    <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
