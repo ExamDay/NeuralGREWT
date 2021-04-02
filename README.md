@@ -55,8 +55,10 @@ set of the most common ones.
     of that vector by summing the relative likelihoods of each symbol appearing at
     its location given all previous symbols in the vector (using the predictor) and dividing by the
     length of that vector. That division might be unnecessary, but we will find out.
-        - Update: It occurs to me that the division by sentence length would have a largely unpredictable effect on the validity score on any one
-            dimension relative to all the others.
+        - Update: It occurs to me that the division by sentence length would have a largely unhelpful effect on the validity score on any one
+            dimension relative to all the others. Making similarities between dimensions of longer vectors appear artificially strong, while
+            exaggerating differences between shorter vectors. Validity may or may not have anything to do with string length depending on the language
+            so it is wrong to force such a correlation.
             A proper normalization across all dimensions regarded equally is what we want here.
 - Perform T-SNE followed by PCA on the validity tensor to infer number and relative
 importance of symbol categories.
