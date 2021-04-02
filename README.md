@@ -76,6 +76,11 @@ informed choice of category in the case of context dependent taxonomy.)
 - [x] Compile Symbol Set
 - [x] Generate Perterbation Tensor
 - [ ] Calculate Validity Tensor [ In Progress -- 10 days of computation time left to go on a GTX 1070 M as of 04/02/2021 ]
+    - Signs from the first few checkpoints are looking very promising. Replacements known to largely preserve validity
+        (such as pronouns with any other pronoun) are displaying markedly higher probability to the predictor. The trend is so striking that it is visible to
+        the naked eye even before normalization. Feels like cheating a little bit, since I am trying to stick to a pre-registered method, but I couldn't help
+        myself. I'll just have to be extra careful not to make any decisions based on this good news. Easiest way to ensure that is to just stick to the plan as
+        written.
 - [ ] T-SNE
 - [ ] PCA
 - [ ] Category Naming and Mapping
