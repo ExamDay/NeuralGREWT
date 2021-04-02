@@ -62,7 +62,7 @@ importance of symbol categories.
 sorted in descending order of the symbol's <em>belongingness</em> to each category.
 - Create a <em>cat-sym</em> mapping of each category to a list of its symbols sorted in descending order of each symbol's belongingness to the category.
 - Create a <em>token set</em> from the corpus by replacing each symbol in the corpus with
-a name or <em>token</em> for its corresponding category. (in the proof of concept we will simply pick the highest ranked
+a name, or <em>token</em>, for its corresponding category. (in the proof of concept we will simply pick the highest ranked
 category from each symbol's entry in the sym-cat mapping. Future work will be needed to make an
 informed choice of category in the case of context dependent taxonomy.)
 - Create a <em>garbage set</em> from the token set by randomizing a large enough proportion of the tokens in the token set to render each string likely invalid.
