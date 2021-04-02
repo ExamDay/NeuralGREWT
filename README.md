@@ -11,7 +11,8 @@ For example: the string of symbols (in this case a sentence of words)
 is also nonsensical in isolation ("in isolation" meaning in the absence of explanatory context).
 
 Given this definition of grammatic validity, valid sentences will be
-more common than invalid ones in any string-set comprised mostly of sensical strings.
+more common than invalid ones in any string-set comprised mostly of sensical strings; making it
+possible to infer validity a string from it's probability.
 
 Therefore, it may be possible to learn grammar rules of any language, including computer,
 fictional, and extra-terrestrial languages, without needing to make sense of
