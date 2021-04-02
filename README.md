@@ -54,7 +54,7 @@ set of the most common ones.
     - For each vector in the perturbation tensor, judge the probability
     of that vector by summing the relative likelihoods of each symbol appearing at
     its location given all previous symbols in the vector (using the predictor) and dividing by the
-    length of that vector.
+    length of that vector (unnecessary? We will find out.).
 - Perform T-SNE followed by PCA on the validity tensor to infer number and relative
 importance of symbol categories.
 - Name each symbol category. (can be totally arbitrary)
