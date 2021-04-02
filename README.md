@@ -35,9 +35,9 @@ categories from the degree of mutual interchangability (or equivilently the clus
 scores").
 
 ## Technique Overview
-- Compile a large <em>corpus</em> of valid and sensical writings in the chosen language.
+- Compile a large <em>corpus</em> of valid and/or sensical writings in the chosen language.
 - Train a natural language model, or <em>predictor</em>, on the corpus until it is very good at predicting
-symbols in the language given context. Anything like BERT or GPT-2 will do.
+symbols in the language given context. Anything like BERT or GPT-2 will do fine, and in fact are probably overkill.
 - Compile a large "ground set" of valid and/or meaningful strings in the chosen language.
 (in the case of unknown languages, this ground set can just be a random subset of the corpus)
 - Compile a "symbol set" of all symbols in the chosen language, or at least a large
