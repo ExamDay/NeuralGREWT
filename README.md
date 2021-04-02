@@ -93,8 +93,8 @@ informed choice of category in the case of context dependent taxonomy.)
 - [ ] Generate Token and Garbage Sets
 - [ ] Train Grammar Net
     - One good way to make the grammar net more comprehensible would be to use a very large number of filters in the convolutional layers and
-        <strong>strong</strong> regularization across the board, so as to ensure that the vast majority of filters obviously do nothing, 
-        while emphasizing the important few that communicate a lot.
+        <strong>strong</strong> regularization across the board, so as to ensure that the vast majority of filters obviously do nothing (or are
+        lower-weighted redundant duplicates that all do the same thing), while emphasizing the important few that communicate a lot.
 ## How to Install
 <!-- - Clone this repository. -->
 [TBD]
