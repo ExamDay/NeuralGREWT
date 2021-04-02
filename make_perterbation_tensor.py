@@ -19,7 +19,7 @@ with open(args["i"], "r") as f:
 strings = re.split("\n", rawStrings)
 
 # -- Truncate Strings (also good for Smol RAM Devices) -- #
-strings = strings[0:1000]
+strings = strings[:1000]
 
 #  with open("data/groundStrings.json", "w") as f:
 #      json.dump(strings, f)
@@ -37,7 +37,7 @@ for s in strings:
 with open("data/symbols.json", "r") as f:
     symbols = json.load(f)
 
-symbols = symbols[0:1000]
+symbols = symbols[:1000]
 
 # -- generate perterbationTensor -- #
 

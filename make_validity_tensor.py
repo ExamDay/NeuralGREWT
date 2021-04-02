@@ -28,13 +28,19 @@ parser.add_argument(
     help="sets the input perterbation tensor file.",
 )
 parser.add_argument(
+    "-gvi",
+    default="data/groundValidityTensor.json",
+    type=str,
+    help="sets the input ground validity tensor file.",
+)
+parser.add_argument(
     "-gvo",
     default="data/groundValidityTensor.json",
     type=str,
     help="sets the output ground validity tensor file.",
 )
 parser.add_argument(
-    "-vto",
+    "-vo",
     default="data/validityTensor.json",
     type=str,
     help="sets the output validity tensor file.",
@@ -47,6 +53,12 @@ parser.add_argument(
     "(If left blank defaults to 'DEVICE' entry in .env file.)\n",
 )
 args = vars(parser.parse_args())
+
+logging.basicConfig(
+    filename="logs/validtyTensor.log",
+    level=logging.DEBUG,
+    format="[%(asctime)s|%(name)s|make_validity_tensor.py|%(levelname)s] %(message)s",
+)
 
 if args["d"]:
     device_choice = args["d"]
@@ -63,12 +75,6 @@ if device_choice == "gpu":
     print("gpu accellerated")
 else:
     print("cpu bound")
-
-logging.basicConfig(
-    filename="logs/validtyTensor.log",
-    level=logging.DEBUG,
-    format="[%(asctime)s|%(name)s|make_validity_tensor.py|%(levelname)s] %(message)s",
-)
 
 state_dict = torch.load(
     config("MODEL_LOCATION"),
@@ -123,7 +129,7 @@ def detokenize(tokens: iter):
 
 
 def firstMismatch(tokensA: iter, tokensB: iter):
-    # assumes token iterables are of equivilent length
+    # assumes tokensA is shorter than, or as long as, tokensB.
     for i in range(len(tokensA)):
         if tokensA[i] != tokensB[i]:
             return i
@@ -131,7 +137,7 @@ def firstMismatch(tokensA: iter, tokensB: iter):
 
 
 def firstMismatchInclusive(tokensA: iter, tokensB: iter):
-    # does not assume token iterables are of equivilent length
+    # makes no assumptions about the lengths of tokensA and tokensB.
     for i in range(min(len(tokensA), len(tokensB))):
         if tokensA[i] != tokensB[i]:
             return i
@@ -190,6 +196,35 @@ def errorSeries(tokens: list, pbar: tqdm):
     return radii
 
 
+def partialErrorSeries(tokens: list, start: int):
+    def getRadius(logits, token):
+        prob = logits[token]
+        clamped = torch.clamp(logits, min=prob, max=None)
+        clamped.add_(-prob)
+        radius = torch.count_nonzero(clamped).item()
+        return radius
+
+    radii = []
+    if start == 0:
+        # get first radius (special case)
+        logits = predictedDistribution(start_token=50256)  # 50256 => <|endoftext|>
+        radius = getRadius(logits, tokens[0])
+        radii.append(radius)
+
+        # then get all following radii
+        for i in range(1, len(tokens)):
+            logits = predictedDistribution(tokens=tokens[:i])
+            radius = getRadius(logits, tokens[i])
+            radii.append(radius)
+        return radii
+    else:
+        for i in range(start, len(tokens)):
+            logits = predictedDistribution(tokens=tokens[:i])
+            radius = getRadius(logits, tokens[i])
+            radii.append(radius)
+        return radii
+
+
 def calculateGroundValidityTensor(groundStrings: iter):
     gvBar = tqdm(total=len(groundStrings), desc="GroundValidity", position=0)
     gvTen = []
@@ -202,32 +237,79 @@ def calculateGroundValidityTensor(groundStrings: iter):
     return gvTen
 
 
-#  def calculateValidityTensor(groundStrings: str, perterbationTensor: str, outFile: str):
-#      print("\nBulk Radius Production\n")
-#      # iterate through each file in inDir
-#      totalBar = tqdm(total=100, desc="Total", position=0)
-#      symbolBar = tqdm(total=100, desc="TBD", position=1)
+def calculateValidityTensor(
+    groundTokens: iter, groundValidityTensor: iter, perterbationTensor: iter
+):
+    # iterate through each file in inDir
+    totalBar = tqdm(total=len(perterbationTensor), desc="Total", position=0)
+    symbolBar = tqdm(total=len(perterbationTensor[0][1]), desc="TBD", position=1)
+    vectorBar = tqdm(total=len(perterbationTensor[0][1][0]), desc="Vector", position=2)
 
-#      symbolBar.set_description(sym)
-#      symbolBar.reset(total=100)
-#      radii = errorSeries()
-#      radii.append()
-#      # write the radii to an output file every so often
-#      symbolBar.update()
-#      totalBar.update()
-#      # make sure to flush buffers of radii and tokens
-
-#      symbolBar.close()
-#      totalBar.close()
-#      print("\nCOMPLETE\n")
+    coder = get_encoder()
+    validityTensor = []
+    for sym, plane in perterbationTensor:
+        logging.info("Started Symbol: " + sym)
+        symbolBar.reset()
+        symbolBar.set_description(sym)
+        vPlane = []
+        for i, vector in enumerate(plane):
+            vVector = []
+            vectorBar.reset(total=len(vector))
+            for pString in vector:
+                # tokenize pString
+                pTokens = coder.encode(pString)
+                # locate departure form ground tokens
+                departure = firstMismatch(pTokens, groundTokens[i])
+                if departure is not None:
+                    # sum error up to agreement with groundTokens
+                    agreement = sum(groundValidityTensor[i][:departure])
+                    # calculate validity of peterbed string from departure onward
+                    departureValidity = partialErrorSeries(pTokens, departure)
+                    # calculate total validity
+                    validity = agreement + sum(departureValidity)
+                    # compare to ground validity
+                    validity_delta = (
+                        sum(groundValidityTensor[i]) - validity
+                    )  # lower validity is better
+                else:
+                    validity_delta = 0
+                vVector.append(validity_delta)
+                vectorBar.update()
+            vPlane.append(vVector)
+            symbolBar.update()
+        validityTensor.append((sym, vPlane))
+        totalBar.update()
+        logging.info("Finished Symbol: " + sym)
+        with open(args["vo"], "w") as f:  # save checkpoint
+            json.dump(validityTensor, f)
+    vectorBar.close()
+    symbolBar.close()
+    totalBar.close()
+    return validityTensor
 
 
 if __name__ == "__main__":
 
+    #  with open(args["gs"], "r") as f:
+    #      groundStrings = json.load(f)
+
+    #  gvTen = calculateGroundValidityTensor(groundStrings)
+    #  with open(args["gvo"], "w") as f:
+    #      json.dump(gvTen, f)
+
     with open(args["gs"], "r") as f:
         groundStrings = json.load(f)
 
-    gvTen = calculateGroundValidityTensor(groundStrings)
-    with open(args["gvo"], "w") as f:
-        json.dump(gvTen, f)
-    #  calculateValidityTensor(inDir="samples/", outDir="radii/", windowSize=22, human_readable=False)
+    groundTokens = []
+    coder = get_encoder()
+    for gs in groundStrings:
+        groundTokens.append(coder.encode(gs))
+
+    with open(args["gvi"], "r") as f:
+        groundValidity = json.load(f)
+
+    with open(args["pt"], "r") as f:
+        perterbationTensor = json.load(f)
+
+    vt = calculateValidityTensor(groundTokens, groundValidity, perterbationTensor)
+    print("\n\n\n### --- SUCCESS! --- ###\n\n\n")
