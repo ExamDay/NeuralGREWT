@@ -57,7 +57,7 @@ set of the most common ones.
     corresponding ground string to obtain a <em>validity delta</em>, and dividing by the length of that vector. That division might be unnecessary,
     but we will find out.
         - Update: It occurs to me that the division by sentence length would have a largely unhelpful effect on the validity score of any one
-            dimension relative to all the others. Exaggerating similarities between dimensions as vectors grow longer. The ground-truth validity delta may or may             not have anything to do with string length depending on the language so it is wrong to force such a correlation in general.
+            dimension relative to all the others; exaggerating similarities between dimensions as vectors grow longer. The ground-truth validity delta may or may             not have anything to do with string length depending on the language so it is wrong to force such a correlation in general.
             A proper normalization across all dimensions regarded equally is what we want here.
 - Perform T-SNE followed by PCA on the validity tensor to infer number and relative
 importance of symbol categories.
