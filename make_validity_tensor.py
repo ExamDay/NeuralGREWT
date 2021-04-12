@@ -19,7 +19,10 @@ from GPT2.utils import load_weight
 
 parser = argparse.ArgumentParser(description="Validity Tensor Estimation")
 parser.add_argument(
-    "-gs", default="data/groundStrings.json", type=str, help="sets the input grond string file"
+    "-gs",
+    default="data/groundStrings.json",
+    type=str,
+    help="sets the input grond string file",
 )
 parser.add_argument(
     "-pt",
@@ -52,6 +55,13 @@ parser.add_argument(
     "Choices: 'gpu' for GPU, 'cpu' for CPU\n"
     "(If left blank defaults to 'DEVICE' entry in .env file.)\n",
 )
+parser.add_argument(
+    "-checkpoint",
+    default=None,
+    type=str,
+    help="Begin again from end of partial validity tensor file.\n"
+    "Accepts: file path to .json containing validity tensor.\n",
+)
 args = vars(parser.parse_args())
 
 logging.basicConfig(
@@ -78,7 +88,9 @@ else:
 
 state_dict = torch.load(
     config("MODEL_LOCATION"),
-    map_location="cpu" if (not torch.cuda.is_available() or device_choice == "cpu") else None,
+    map_location="cpu"
+    if (not torch.cuda.is_available() or device_choice == "cpu")
+    else None,
 )
 
 print("\nValidity Tensor Estimation\n")
@@ -89,7 +101,9 @@ np.random.seed(seed)
 torch.random.manual_seed(seed)
 torch.cuda.manual_seed(seed)
 # device = torch.device("cpu")
-device = torch.device("cuda" if (torch.cuda.is_available() and device_choice == "gpu") else "cpu")
+device = torch.device(
+    "cuda" if (torch.cuda.is_available() and device_choice == "gpu") else "cpu"
+)
 
 known_configurations = {
     "s_ai": GPT2Config(),
@@ -155,12 +169,16 @@ def predictedDistribution(
 ):
     """returns a probability distribution for the next byte-pair encoding"""
     if tokens is None:
-        context = torch.full((batch_size, 1), start_token, device=device, dtype=torch.long)
+        context = torch.full(
+            (batch_size, 1), start_token, device=device, dtype=torch.long
+        )
     elif type(tokens) is torch.Tensor:
         context = tokens.unsqueeze(0).repeat(batch_size, 1)
     else:
         context = (
-            torch.tensor(tokens, device=device, dtype=torch.long).unsqueeze(0).repeat(batch_size, 1)
+            torch.tensor(tokens, device=device, dtype=torch.long)
+            .unsqueeze(0)
+            .repeat(batch_size, 1)
         )
     prev = context
     past = None
@@ -238,15 +256,25 @@ def calculateGroundValidityTensor(groundStrings: iter):
 
 
 def calculateValidityTensor(
-    groundTokens: iter, groundValidityTensor: iter, perterbationTensor: iter
+    groundTokens: iter,
+    groundValidityTensor: iter,
+    perterbationTensor: iter,
+    checkpoint: str = None,
 ):
-    # iterate through each file in inDir
+    validityTensor = []
     totalBar = tqdm(total=len(perterbationTensor), desc="Total", position=0)
     symbolBar = tqdm(total=len(perterbationTensor[0][1]), desc="TBD", position=1)
     vectorBar = tqdm(total=len(perterbationTensor[0][1][0]), desc="Vector", position=2)
 
+    if checkpoint:
+        with open(checkpoint, "r") as f:
+            validityTensor = json.load(f)
+        # don't recalculate any symbols that have already been done
+        already = len(validityTensor)
+        perterbationTensor = perterbationTensor[already::]
+        totalBar.update(already)
+
     coder = get_encoder()
-    validityTensor = []
     for sym, plane in perterbationTensor:
         logging.info("Started Symbol: " + sym)
         symbolBar.reset()
@@ -311,5 +339,7 @@ if __name__ == "__main__":
     with open(args["pt"], "r") as f:
         perterbationTensor = json.load(f)
 
-    vt = calculateValidityTensor(groundTokens, groundValidity, perterbationTensor)
+    vt = calculateValidityTensor(
+        groundTokens, groundValidity, perterbationTensor, checkpoint=args["checkpoint"]
+    )
     print("\n\n\n### --- SUCCESS! --- ###\n\n\n")
