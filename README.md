@@ -37,45 +37,45 @@ scores).
 ## Technique Overview
 - Compile a large <em>corpus</em> of valid and/or sensical writings in the chosen language.
 - Train a natural language model, or <em>predictor</em>, on the corpus until it is very good at predicting
-symbols in the language given context. Anything like BERT or GPT-2 will do fine, and in fact are probably overkill.
+    symbols in the language given context. Anything like BERT or GPT-2 will do fine, and in fact are probably overkill.
 - Compile a large "ground set" of valid and/or meaningful strings in the chosen language.
-(in the case of unknown languages, this ground set can just be a random subset of the corpus)
+    (in the case of unknown languages, this ground set can just be a random subset of the corpus)
 - Compile a "symbol set" of all symbols in the chosen language, or at least a large
-set of the most common ones.
+    set of the most common ones.
 - Create a 4 dimensional <em>perturbation tensor</em> from the ground and symbol sets by:
     - Add to the perturbation tensor a <em>cube</em> for each <em>symbol</em> in the symbol set;
-    construct each cube by stacking a <em>plane</em> for each <em>ground string</em> in the ground
-    set; construct each plane by stacking a <em>vector</em> for all strings that can be
-    created by replacing any one item in the ground string with the symbol. Of course, making
-    sure to do this in the same order for all vectors.
-    (In an actual tensor all such vectors need to be padded to uniform dimension with null strings
+        construct each cube by stacking a <em>plane</em> for each <em>ground string</em> in the ground
+        set; construct each plane by stacking a <em>vector</em> for all strings that can be
+        created by replacing any one item in the ground string with the symbol. Of course, making
+        sure to do this in the same order for all vectors.
+        (In an actual tensor all such vectors need to be padded to uniform dimension with null strings
     ―  In practice we can use a 3 dimensional tensor of pointers to vectors of variable dimension)
 - Create a 4 dimensional <em>validity tensor</em> from the perturbation tensor by:
     - For each vector in the perturbation tensor, judge the probability
-    of that vector by summing the relative likelihoods of each symbol appearing at
-    its location given all previous symbols in the vector (using the predictor), taking the difference between this and the sum-validity of it's
-    corresponding ground string to obtain a <em>validity delta</em>, and dividing by the length of that vector. That division might be unnecessary,
-    but we will find out.
+        of that vector by summing the relative likelihoods of each symbol appearing at
+        its location given all previous symbols in the vector (using the predictor), taking the difference between this and the sum-validity of it's
+        corresponding ground string to obtain a <em>validity delta</em>, and dividing by the length of that vector. That division might be unnecessary,
+        but we will find out.
         - Update: It occurs to me that the division by sentence length would have a largely unhelpful effect on the validity score of any one
             dimension relative to all the others; exaggerating similarities between dimensions as vectors grow longer. The ground-truth validity delta may or may             not have anything to do with string length depending on the language so it is wrong to force such a correlation in general.
             A proper normalization across all dimensions regarded equally is what we want here.
-- Perform T-SNE followed by PCA on the validity tensor to infer number and relative
-importance of symbol categories.
-        - NOTE: In this case PCA will not, and cannot provide a useful classifier for datapoints that were not already present in the T-SNE plot.
-            Here we are simply looking to quantify the number of clusters, and get some small idea of the distances between clusters (distances between T-SNE
-            clusters are sometimes meaningless, so the distances according to PCA are not to be taken seriously in this case. However, the number of
-            clusters and degree of overlap communicated by PCA on T-SNE will be reliably meaningful if good clusters are found).
+- Perform T-SNE followed by PCA on the validity tensor to infer number and relative importance of symbol categories.
+    - NOTE: In this case PCA will not, and cannot provide a useful classifier for datapoints that were not already present in the T-SNE plot.
+        Here we are simply looking to quantify the number of clusters, and get some small idea of the distances between clusters (distances between T-SNE
+        clusters are sometimes meaningless, so the distances according to PCA are not to be taken seriously in this case. However, the number of
+        clusters and degree of overlap communicated by PCA on T-SNE will be reliably meaningful if good clusters are found).
 - Name each symbol category. (can be totally arbitrary)
 - Create a <em>sym-cat</em> mapping of each symbol to a list of its categories
-sorted in descending order of the symbol's <em>belongingness</em> to each category.
+    sorted in descending order of the symbol's <em>belongingness</em> to each category.
 - Create a <em>cat-sym</em> mapping of each category to a list of its symbols sorted in descending order of each symbol's belongingness to the category.
 - Create a <em>token set</em> from the corpus by replacing each symbol in the corpus with
-a name, or <em>token</em>, for its corresponding category. (in the proof of concept we will simply pick the highest ranked
-category from each symbol's entry in the sym-cat mapping. Future work will be needed to make an
-informed choice of category in the case of context dependent taxonomy.)
+    a name, or <em>token</em>, for its corresponding category. (in the proof of concept we will simply pick the highest ranked
+    category from each symbol's entry in the sym-cat mapping. Future work will be needed to make an
+    informed choice of category in the case of context dependent taxonomy.)
 - Create a <em>garbage set</em> from the token set by randomizing a large enough proportion of the tokens in the token set to render each string likely invalid.
 - Train a comprehensible, spiking, convolutional neural network, or <em>grammar net</em>, to distinguish between items of the token and garbage sets.
-- The filters of the trained grammar net are first order grammar rules, the fully connected layers behind those are second order grammar rules, and so on. (or something to that effect depending on the structure of the grammar net.)
+- The filters of the trained grammar net are first order grammar rules, the fully connected layers behind those are second order grammar rules, and so on.
+    (or something to that effect depending on the structure of the grammar net.)
 
 ## Status
 - [x] Gather Corpus 
