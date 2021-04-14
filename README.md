@@ -78,7 +78,7 @@ scores).
     (or something to that effect depending on the structure of the grammar net.)
 
 ## Status
-- [x] Gather Corpus 
+- [x] Gather Corpus
 - [x] Train Natural Language Model (GPT-2)
 - [x] Compile Ground Set
 - [x] Compile Symbol Set
@@ -121,13 +121,13 @@ pre-commit install
 and feed it your desired file.
 ```bash
 pip3 install grip
-grip README.md
+python3 -m grip README.md
 ```
 - Then follow the link provided by the Grip sever for a live preview of your work.
 
 - When satisfied with your changes you can compile to an html file with:
 ```bash
-grip README.md --export README.html
+python3 -m grip README.md --export README.html
 ```
 
 ## Authors
