@@ -60,7 +60,7 @@ set of the most common ones.
             dimension relative to all the others; exaggerating similarities between dimensions as vectors grow longer. The ground-truth validity delta may or may             not have anything to do with string length depending on the language so it is wrong to force such a correlation in general.
             A proper normalization across all dimensions regarded equally is what we want here.
 - Perform T-SNE followed by PCA on the validity tensor to infer number and relative
-importance of symbol categories.
+importance of symbol categories. NOTE: In this case PCA will not, and cannot provide a useful classifier for datapoints that were not already present in the T-SNE plot. Here we are simply looking to quantify the number of clusters, and get some small idea of the distances between clusters (distances between T-SNE clusters are sometimes meaningless, so the distances according to PCA are not to be taken seriously in this case. However, the number of clusters and degree of overlap communicated by PCA on T-SNE will be reliably meaningful if good clusters are found).
 - Name each symbol category. (can be totally arbitrary)
 - Create a <em>sym-cat</em> mapping of each symbol to a list of its categories
 sorted in descending order of the symbol's <em>belongingness</em> to each category.
