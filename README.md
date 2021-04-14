@@ -61,7 +61,7 @@ set of the most common ones.
             A proper normalization across all dimensions regarded equally is what we want here.
 - Perform T-SNE followed by PCA on the validity tensor to infer number and relative
 importance of symbol categories.
-        -NOTE: In this case PCA will not, and cannot provide a useful classifier for datapoints that were not already present in the T-SNE plot.
+        - NOTE: In this case PCA will not, and cannot provide a useful classifier for datapoints that were not already present in the T-SNE plot.
         Here we are simply looking to quantify the number of clusters, and get some small idea of the distances between clusters (distances between T-SNE
         clusters are sometimes meaningless, so the distances according to PCA are not to be taken seriously in this case. However, the number of
         clusters and degree of overlap communicated by PCA on T-SNE will be reliably meaningful if good clusters are found).
