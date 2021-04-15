@@ -83,7 +83,7 @@ scores).
 - [x] Compile Ground Set
 - [x] Compile Symbol Set
 - [x] Generate Perterbation Tensor
-- [ ] Calculate Validity Tensor [ In Progress -- 4 days of computation time left to go on a GTX 1070 M as of 04/12/2021 ]
+- [ ] Calculate Validity Tensor [ In Progress -- 2 days of computation time left to go on a GTX 1070 M as of 04/15/2021 out of 10 days total]
     - Signs from the first few checkpoints are looking very promising. Replacements known to largely preserve validity
         (such as pronouns with any other pronoun) are displaying markedly higher probability to the predictor. The trend is so striking that it is visible to
         the naked eye even before normalization. Feels like cheating a little bit, since I am trying to stick to a pre-registered method,
