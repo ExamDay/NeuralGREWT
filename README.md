@@ -139,9 +139,5 @@ See also the list of [contributors](https://github.com/ExamDay/NeuralGREWT/contr
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Test
-<div>
-    <a href="https://plotly.com/~psmith1223/11/" target="_blank" title="plot from API (2)" style="display: block; text-align: center;"><img src="https://plotly.com/~psmith1223/11.png" alt="plot from API (2)" style="max-width: 100%;width: 800px;"  width="800" onerror="this.onerror=null;this.src='https://plotly.com/404.png';" /></a>
-    <script data-plotly="psmith1223:11" src="https://plotly.com/embed.js" async></script>
-</div>
-
+<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~empet/14814.embed"></iframe>
 
