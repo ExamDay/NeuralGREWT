@@ -261,10 +261,10 @@ def tsneWordTaxonomyPyPlot(
                     #  color=[(255, 0, 0) for x in range(500)],
                     #  labels={'color': 'species'}
                     mode="markers",
-                    marker=dict(size=10, color=df["colors"], line=None),
+                    marker=dict(size=12, color=df["colors"], line=None),
                     #  text=df["labels"],
                     hovertext=df["labels"],
-                    hovertemplate="%{hovertext}<extra></extra>",
+                    hovertemplate=" %{hovertext}<extra></extra> ",
                     #  showlegend=True,
                 )
             ],
@@ -290,8 +290,16 @@ def tsneWordTaxonomyPyPlot(
             zaxis=axis_settings,
             dragmode="orbit",
         )
-        fig_3d.show()
-        fig_3d.write_html("plottest_" + str(perplexity) + ".html")
+        fig_3d.update_layout(
+            hoverlabel=dict(
+                font_size=32,
+            )
+        )
+
+        config = dict(displaylogo=False)
+
+        fig_3d.show(config=config)
+        fig_3d.write_html("plottest_" + str(perplexity) + ".html", config=config)
 
         #  exit()
 
