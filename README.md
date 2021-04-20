@@ -107,7 +107,7 @@ scores).
         other vector as a distance metric together with Barnes-Hut approximation to find a good
         representation of the clustering in a visualizable space.
     - The step above was performed with many perpexities ranging from 5 to 50. Qualitative optimum
-        was found to lie between 12.5 and 17.5 (Specifically: optimimum for a set of 500 vectors of
+        was found to lie between 12.5 and 17.5 (Specifically: optimimum for a set of 500 points in
         ~5500 dimensions. This optimimum is likely to be different for other point-count to
         dimensionality ratios).
 - [ ] PCA
