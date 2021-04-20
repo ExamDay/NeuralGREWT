@@ -93,9 +93,23 @@ scores).
         is to make as few of them as possible and stick closely to the plan as written.
     - [ Trial set generated in 10 days of computation time on a GTX 1070 M ]
 - [X] T-SNE
-    - Each dimension scaled independant of others to range between -1 and 1. This way signals from dimensions with naturally smaller values are not washed out by
-        signals in naturally larger ones in the next step \emdash improving our dynamic range.
-    -
+    - To improve our dynamic range, each dimension of the validity tensor
+        is scaled independently of the others so that its values now
+        range between -1 and 1 for all symbols. This is to ensure signals of
+        dimensions with naturally smaller values are not so severly washed-out by
+        signals of naturally larger dimensions in the next step.
+    - After scaling, the validity tensor is passed through a heavyside function to produce
+        a tensor of sparse boolean vectors with ones for all values above a specified threshold.
+        Implicitly, this means that all values above some high-but-ultimately-arbitrary
+        validity threshold (in this case above -5 or thereabouts after scaling) are
+        regarded as totally valid replacements, and all others are assumed to be equally invalid.
+    - T-SNE was performed using the jaccardian dissimilarity index of each vector against every
+        other vector as a distance metric together with Barnes-Hut approximation to find a good
+        representation of the clustering in a visualizable space.
+    - The step above was performed with many perpexities ranging from 5 to 50. Qualitative optimum
+        was found to lie between 12.5 and 17.5 (Specifically: optimimum for a set of 500 vectors of
+        ~5500 dimensions. This optimimum is likely to be different for other point-count to
+        dimensionality ratios).
 - [ ] PCA
 - [ ] Category Naming and Mapping
 - [ ] Generate Token and Garbage Sets
