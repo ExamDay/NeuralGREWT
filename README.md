@@ -1,4 +1,8 @@
 <h1 align="center">NeuralGREWT:<br>Neural Grammar Rule Extraction and Word Taxonomy</h1>
+
+[![Homepage](repo_images/plot.png "Interact")](http://blackboxlabs.dev/neuralgrewt)
+<a href="http://blackboxlabs.dev/neuralgrewt"><p align="center">Click to Interact</p></a>
+
 Unsupervised learning of grammar rules and fuzzy symbol categories by stochasic neighbor embedding
 of string probabilities derived from a natural language generation model.
 
@@ -117,6 +121,7 @@ scores).
     - One good way to make the grammar net more comprehensible would be to use a very large number of filters in the convolutional layers and
         <strong>strong</strong> regularization across the board, so as to ensure that the vast majority of filters obviously do nothing (or are
         lower-weighted redundant duplicates that all do the same thing), while emphasizing the important few that communicate a lot.
+
 ## How to Install
 <!-- - Clone this repository. -->
 [TBD]
@@ -155,6 +160,3 @@ See also the list of [contributors](https://github.com/ExamDay/NeuralGREWT/contr
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Test
-![](./embeddedPlot.svg)
