@@ -157,4 +157,4 @@ See also the list of [contributors](https://github.com/ExamDay/NeuralGREWT/contr
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Test
-![](./figures/5%_lr5_ea1then36_jaccard_fineColor/plottest_15.0.html)
+![](./figures/5%_lr5_ea1then36_jaccard_fineColor/test.svg)
