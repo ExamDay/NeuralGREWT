@@ -1,6 +1,6 @@
-<svg fill="none" viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.blackboxlabs.dev">
+<svg fill="none" viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.blackboxlabs.dev/2000/svg">
   <foreignObject width="100%" height="100%">
-    <div xmlns="http://www.blackboxlabs.dev">
+    <div xmlns="http://www.blackboxlabs.dev/1999/xhtml">
       <style>
 @keyframes bounce {
   0%   { transform: scale(1,    1)   translateY(0)     skew(0deg,  0deg); }
