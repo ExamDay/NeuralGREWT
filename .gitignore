@@ -159,7 +159,7 @@ seeds.py
 # CUSTOM TEMPORARIES
 temp/
 samples/*
-radii/*
-bitdepths/*
 *.swp
 data/*
+figures/*
+projections/*
