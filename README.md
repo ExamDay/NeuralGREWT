@@ -175,9 +175,11 @@ to infer discrete symbol categories from the degree of mutual interchangability
 - Word Taxonomy Visualization:
 <div style="text-align: center;">
 <!-- &emsp;&emsp;&emsp;Click plot for interactive visualization. -> -->
-&emsp;&emsp;&emsp;<a target="_blank" href="http://blackboxlabs.dev/neuralgrewt">Click for interactive visualization</a>
+&emsp;&emsp;&emsp;
+<a target="_blank" href="http://blackboxlabs.dev/neuralgrewt">Click for interactive visualization
 <img src="./repo_images/smallPlot.png" alt="scatter plot" width="250px"
 height="250px" align="center">
+</a>
 </div>
 [TBD]
 
