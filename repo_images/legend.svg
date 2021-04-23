@@ -1,0 +1,200 @@
+<svg fill="none" viewBox="0 0 525 865" width="525" height="865" xmlns="http://www.w3.org/2000/svg">
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table class="dtable">
+      <thead>
+      <tr>
+      <th>Color</th>
+      <th>Part of Speech</th>
+      <th>Example</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td style="background: #000000;"></td>
+      <td>sentence terminators</td>
+      <td>. ! ?</td>
+      <td></td>
+      </tr>
+      <tr>
+      <td style="background: #696969;"></td>
+      <td>middle punctuation</td>
+      <td>- , : ; " ... ( )</td>
+      </tr>
+      <tr>
+      <td style="background: #808080;"></td>
+      <td>quotes</td>
+      <td>"</td>
+      </tr>
+      <tr>
+      <td style="background: #D3D3D3;"></td>
+      <td>dollar sign, list marker, or foreign word</td>
+      <td>$, 1), Кошка</td>
+      </tr>
+      <tr>
+      <td style="background: #D3D3D3;"></td>
+      <td>interjection</td>
+      <td>Erm, Um, Drat!</td>
+      </tr>
+      <tr>
+      <td style="background: #800080;"></td>
+      <td>digits</td>
+      <td>0, 1, 2, ...</td>
+      </tr>
+      <tr>
+      <td style="background: #8B4513;"></td>
+      <td>single letters a, b, c, ...</td>
+      </tr>
+      <tr>
+      <td style="background: #006400;"></td>
+      <td>determiner</td>
+      <td>a, an, the, every</td>
+      </tr>
+      <tr>
+      <td style="background: #228B22;"></td>
+      <td>predeterminer</td>
+      <td>'all the kids'</td>
+      </tr>
+      <tr>
+      <td style="background: #00FF00;"></td>
+      <td>coordinating conjuntion</td>
+      <td>and, but, or</td>
+      </tr>
+      <tr>
+      <td style="background: #32CD32;"></td>
+      <td>preposition/subordinating conjunction</td>
+      </tr>
+      <tr>
+      <td style="background: #7CFC00;"></td>
+      <td>to</td>
+      <td>go 'to' the store.</td>
+      </tr>
+      <tr>
+      <td style="background: #00FA9A;"></td>
+      <td>existential there</td>
+      <td>"there is" ... "there exists"</td>
+      </tr>
+      <tr>
+      <td style="background: #FFFF00;"></td>
+      <td>particle</td>
+      <td>give up</td>
+      </tr>
+      <tr>
+      <td style="background: #FF4500;"></td>
+      <td>modal</td>
+      <td>could, will, should, may</td>
+      </tr>
+      <tr>
+      <td style="background: #6A5ACD;"></td>
+      <td>adjective</td>
+      <td>big</td>
+      </tr>
+      <tr>
+      <td style="background: #7B68EE;"></td>
+      <td>adjective comparative</td>
+      <td>bigger</td>
+      </tr>
+      <tr>
+      <td style="background: #9370DB;"></td>
+      <td>superlative adjective</td>
+      <td>biggest</td>
+      </tr>
+      <tr>
+      <td style="background: #191970;"></td>
+      <td>personal pronoun</td>
+      <td>I, he, she</td>
+      </tr>
+      <tr>
+      <td style="background: #0000FF;"></td>
+      <td>possessive pronoun and possessive endings\&#8195;</td>
+      <td>my, his, hers, 's</td>
+      </tr>
+      <tr>
+      <td style="background: #00FFFF;"></td>
+      <td>singular noun</td>
+      <td>desk</td>
+      </tr>
+      <tr>
+      <td style="background: #40E0D0;"></td>
+      <td>noun plural</td>
+      <td>desks</td>
+      </tr>
+      <tr>
+      <td style="background: #000080;"></td>
+      <td>singular proper noun</td>
+      <td>Harrison</td>
+      </tr>
+      <tr>
+      <td style="background: #008B8B;"></td>
+      <td>plural proper noun</td>
+      <td>Americans</td>
+      </tr>
+      <tr>
+      <td style="background: #5F9EA0;"></td>
+      <td>wh-determiner</td>
+      <td>which</td>
+      </tr>
+      <tr>
+      <td style="background: #4682B4;"></td>
+      <td>wh-pronoun</td>
+      <td>who, what</td>
+      </tr>
+      <tr>
+      <td style="background: #6495ED;"></td>
+      <td>possessive wh-pronoun</td>
+      <td>whose</td>
+      </tr>
+      <tr>
+      <td style="background: #87CEEB;"></td>
+      <td>wh-adverb</td>
+      <td>where, when</td>
+      </tr>
+      <tr>
+      <td style="background: #800000;"></td>
+      <td>adverb</td>
+      <td>very, silently</td>
+      </tr>
+      <tr>
+      <td style="background: #8B0000;"></td>
+      <td>comparative adverb</td>
+      <td>better</td>
+      </tr>
+      <tr>
+      <td style="background: #A52A2A;"></td>
+      <td>superlative adverb</td>
+      <td>best</td>
+      </tr>
+      <tr>
+      <td style="background: #B22222;"></td>
+      <td>base verb</td>
+      <td>take</td>
+      </tr>
+      <tr>
+      <td style="background: #DC143C;"></td>
+      <td>past tense verb</td>
+      <td>took</td>
+      </tr>
+      <tr>
+      <td style="background: #FF0000;"></td>
+      <td>present participle verb</td>
+      <td>taking</td>
+      </tr>
+      <tr>
+      <td style="background: #FF6347;"></td>
+      <td>past participle verb</td>
+      <td>taken</td>
+      </tr>
+      <tr>
+      <td style="background: #FF7F50;"></td>
+      <td>non-3rd person singular present verb</td>
+      <td>take</td>
+      </tr>
+      <tr>
+      <td style="background: #CD5C5C;"></td>
+      <td>3rd person singular present verb</td>
+      <td>takes</td>
+      </tr>
+      </tbody></table>
+    </div>
+  </foreignObject>
+</svg>

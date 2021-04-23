@@ -127,7 +127,7 @@ fine_color_map = {
     "NN": COLORS["cyan"],  # noun, singular    'desk'
     "NNS": COLORS["turquoise"],  # noun plural    'desks'
     "NNP": COLORS["navy"],  # proper noun, singular    'Harrison'
-    "NNPS": COLORS["blue"],  # proper noun, plural    'Americans'
+    "NNPS": COLORS["dark cyan"],  # proper noun, plural    'Americans'
     "WDT": COLORS["cadet blue"],  # wh-determiner    which
     "WP": COLORS["steel blue"],  # wh-pronoun     who, what
     "WP$": COLORS["corn flower blue"],  # possessive wh-pronoun    whose
