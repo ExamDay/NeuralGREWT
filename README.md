@@ -173,15 +173,25 @@ to infer discrete symbol categories from the degree of mutual interchangability
 
 ## Results
 - Word Taxonomy Visualization:
-<!-- | Plot  | Legend | -->
-<!-- | ------------- | ------------- | -->
-<!-- | <img src="./repo_images/smallPlotTransparent.png" alt="scatter plot" width="250px" height="250px" align="center">  | <img src="./repo_images/legend.svg" alt="legend">  | -->
+<!-- <div> -->
+<!-- <a target="_blank" href="http://blackboxlabs.dev/neuralgrewt"><img src="./repo_images/smallPlotTransparent.png" alt="scatter plot" width="375" height="425" align="center"></a>&emsp;&emsp;&emsp;<img src="./repo_images/legend.svg" alt="legend" align="center"> -->
+<!-- </div> -->
 
-<div style="text-align: center;">
-<!-- &emsp;&emsp;&emsp;<a target="_blank" href="http://blackboxlabs.dev/neuralgrewt">Click for interactive visualization</a> -->
-<img src="./repo_images/smallPlotTransparent.png" alt="scatter plot" width="250px"
-height="250px" align="left">
-<img src="./repo_images/legend.svg" alt="legend" align="right">
+<div>
+<p align="center">
+<a target="_blank" href="http://blackboxlabs.dev/neuralgrewt">
+<img src="./repo_images/smallPlotTransparent.png" alt="scatter plot"
+width="500" height="550" align="center">
+</a>
+</p>
+<a target="_blank" href="http://blackboxlabs.dev/neuralgrewt">
+<p align="center">Click to Interact in 3D</p>
+</a>
+<br>
+<br>
+<p align="center">
+<img src="./repo_images/legend.svg" alt="legend" align="center">
+</p>
 </div>
 
 [TBD]
