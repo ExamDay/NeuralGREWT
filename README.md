@@ -180,7 +180,7 @@ to infer discrete symbol categories from the degree of mutual interchangability
 <div>
 <p align="center">
 <a target="_blank" href="http://blackboxlabs.dev/neuralgrewt">
-<img src="./repo_images/smallPlotTransparent.png" alt="scatter plot"
+<img src="./repo_images/smallPlot.png" alt="scatter plot"
 width="500" height="550" align="center">
 </a>
 </p>
