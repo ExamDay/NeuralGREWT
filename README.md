@@ -53,7 +53,7 @@ to infer discrete symbol categories from the degree of mutual interchangability
     symbols in the language given context. Anything like BERT or GPT-2 will do
     fine, and in fact are probably overkill.
     - NOTE: It's definitely overkill. Future work will employ a
-        maximally-minimal version of BERT to accellerate calculation of validity
+        maximally-minimal version of BERT to accelerate calculation of validity
         tensors and eliminate "understanding intrusion". Large BERT and GPT-2 models
         possess a good deal of "understanding" of written text that leads them to rank
         the probability of valid but otherwise non-sensical strings signficantly
