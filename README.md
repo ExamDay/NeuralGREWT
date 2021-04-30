@@ -55,11 +55,11 @@ to infer discrete symbol categories from the degree of mutual interchangability
     - NOTE: It's definitely overkill. Future work will employ a
         maximally-minimal version of BERT to accelerate calculation of validity
         tensors and eliminate "understanding intrusion". Large BERT and GPT-2 models
-        possess a good deal of "understanding" of written text that leads them to rank
+        possess a good deal of understanding of written text that leads them to rank
         the probability of valid but otherwise non-sensical strings signficantly
-        lower than they would if they possessed only an understanding of base grammar
+        lower than they would if they understood only base grammar
         relationships. Clearly this is not good if we are looking for a measure of
-        base validity, regardless of sensicality<sup id="a5">[5](#f5)</sup>.
+        base validity regardless of sensicality<sup id="a5">[5](#f5)</sup>.
 - Compile a large "ground set" of valid and/or meaningful strings in the chosen language.
     (in the case of unknown languages, this ground set can just be a random
     subset of the corpus)
