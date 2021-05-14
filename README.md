@@ -1,6 +1,6 @@
 <h1 align="center">NeuralGREWT:<br>Neural Grammar Rule Extraction and Word Taxonomy</h1>
 
-[![visualization](repo_images/plot.png "Interact")](http://blackboxlabs.dev/neuralgrewt)
+[![visualization](repo_images/plot.png "Interact")](http://blackboxlabs.dev/neuralgrewt/?fig=ng_pos_15.0)
 <a target="_blank" href="http://blackboxlabs.dev/neuralgrewt/?fig=ng_pos_15.0"><p align="center">Click to Interact</p></a>
 
 
