@@ -1,7 +1,7 @@
 <h1 align="center">NeuralGREWT:<br>Neural Grammar Rule Extraction and Word Taxonomy</h1>
 
 [![visualization](repo_images/plot.png "Interact")](http://blackboxlabs.dev/neuralgrewt)
-<a target="_blank" href="http://blackboxlabs.dev/neuralgrewt"><p align="center">Click to Interact</p></a>
+<a target="_blank" href="http://blackboxlabs.dev/neuralgrewt/?fig=ng_pos_15.0"><p align="center">Click to Interact</p></a>
 
 
 
@@ -179,12 +179,12 @@ to infer discrete symbol categories from the degree of mutual interchangability
 
 <div>
 <p align="center">
-<a target="_blank" href="http://blackboxlabs.dev/neuralgrewt">
+<a target="_blank" href="http://blackboxlabs.dev/neuralgrewt/?fig=ng_pos_15.0">
 <img src="./repo_images/smallPlot.png" alt="scatter plot"
 width="500" height="550" align="center">
 </a>
 </p>
-<a target="_blank" href="http://blackboxlabs.dev/neuralgrewt">
+<a target="_blank" href="http://blackboxlabs.dev/neuralgrewt/?fig=ng_pos_15.0">
 <p align="center">Click to Interact in 3D</p>
 </a>
 <br>
