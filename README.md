@@ -184,17 +184,16 @@ to infer discrete symbol categories from the degree of mutual interchangability
 width="500" height="550" align="center">
 </a>
 </p>
-<a target="_blank" href="http://blackboxlabs.dev/neuralgrewt/?fig=ng_pos_15.0">
-<p align="center">Click to Interact in 3D</p>
-</a>
+<!-- <a target="_blank" href="http://blackboxlabs.dev/neuralgrewt/?fig=ng_pos_15.0"> -->
+<!-- <p align="center">Click to Interact in 3D</p> -->
+<!-- </a> -->
+<a target="_blank" href="http://blackboxlabs.dev/neuralgrewt/?fig=ng_pos_15.0"><p align="center">Click to Interact in 3D</p></a>
 <br>
 <br>
 <p align="center">
 <img src="./repo_images/legend.svg" alt="legend" align="center">
 </p>
 </div>
-
-[TBD]
 
 ## Footnotes
 
@@ -277,4 +276,6 @@ python3 -m grip README.md --export README.html
 See also the list of [contributors](https://github.com/ExamDay/NeuralGREWT/contributors) who participated in this project.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+<!-- This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details -->
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/ExamDay/NeuralGREWT/blob/master/LICENSE.md) file for details
+
