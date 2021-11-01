@@ -160,7 +160,7 @@ to infer discrete symbol categories from the degree of mutual interchangability
         many of these clusters seem isolated enough to eyeball without injecting too
         much subjectivity (hence the reduction to visualizable space), but an automatic
         approach is always preferable.
-- [ ] Automatic Cluster Identification with DBSCAN
+- [x] Automatic Cluster Identification with DBSCAN
 - [ ] Category Naming and Mapping
 - [ ] Generate Token and Garbage Sets
 - [ ] Train Grammar Net
